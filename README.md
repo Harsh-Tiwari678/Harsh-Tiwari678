@@ -1,10 +1,7 @@
 <img src="https://capsule-render.vercel.app/api?type=wave,&color=auto&height=300&section=header&text=Harsh%20Tiwari&fontSize=90" />
 
-# 👋 About Me:
-I'm currently working on...
 # 💫 About Me:
 I'm currently working on Building scalable web applications and solving complex DSA challenges while exploring  the opportunities .<br> I'm looking to collaborate on Open-source projects involving web development, blockchain integration, or innovative hackathon ideas that create real-world impact.<br> I'm currently learning Deep diving into microservices architecture, advanced algorithms .<br> Ask me about My Smart India Hackathon winning experience, presenting research at ICSET Abu Dhabi, or building predictive maintenance systems using AI and IoT.<br> Fun fact I presented my research paper on AI-powered predictive maintenance in Abu Dhabi at 18—proving that age is just a number when passion meets purpose
-
 
 ## 🌐 Socials:
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/harsh_tiwari_96) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/@HarshTi94088480) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:harshtiwari1806@gmail.com) 
@@ -16,8 +13,11 @@ I'm currently working on Building scalable web applications and solving complex 
 ![](https://nirzak-streak-stats.vercel.app/?user=Harsh-Tiwari678&theme=dark&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=Harsh-Tiwari678&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
-<img src="https://raw.githubusercontent.com/Harsh-Tiwari678/Harsh-Tiwari678/output/github-contribution-grid-snake.svg" />
+## 🐍 Contribution Snake
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Harsh-Tiwari678/Harsh-Tiwari678/output/github-contribution-grid-snake.svg" />
+</p>
 
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
