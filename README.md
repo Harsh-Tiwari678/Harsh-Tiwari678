@@ -15,7 +15,9 @@ I'm currently working on Building scalable web applications and solving complex 
 ![](https://github-readme-stats.vercel.app/api?username=Harsh-Tiwari678&theme=dark&hide_border=false&include_all_commits=true&count_private=true)<br/>
 ![](https://nirzak-streak-stats.vercel.app/?user=Harsh-Tiwari678&theme=dark&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=Harsh-Tiwari678&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+
 <img src="https://raw.githubusercontent.com/Harsh-Tiwari678/Harsh-Tiwari678/output/github-contribution-grid-snake.svg" />
+
 
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
