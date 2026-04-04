@@ -3,6 +3,10 @@
 # 💫 About Me:
 I'm currently working on Building scalable web applications and solving complex DSA challenges while exploring  the opportunities .<br> I'm looking to collaborate on Open-source projects involving web development, blockchain integration, or innovative hackathon ideas that create real-world impact.<br> I'm currently learning Deep diving into microservices architecture, advanced algorithms .<br> Ask me about My Smart India Hackathon winning experience, presenting research at ICSET Abu Dhabi, or building predictive maintenance systems using AI and IoT.<br> Fun fact I presented my research paper on AI-powered predictive maintenance in Abu Dhabi at 18—proving that age is just a number when passion meets purpose
 
+<p align="center">
+  <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="300"/>
+</p>
+
 ## 🌐 Socials:
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/harsh_tiwari_96) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/@HarshTi94088480) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:harshtiwari1806@gmail.com) 
 
