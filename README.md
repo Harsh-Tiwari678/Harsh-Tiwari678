@@ -1,7 +1,12 @@
 <img src="https://capsule-render.vercel.app/api?type=wave,&color=auto&height=300&section=header&text=Harsh%20Tiwari&fontSize=90" />
 
 # 💫 About Me:
-I'm currently working on Building scalable web applications and solving complex DSA challenges while exploring  the opportunities .<br> I'm looking to collaborate on Open-source projects involving web development, blockchain integration, or innovative hackathon ideas that create real-world impact.<br> I'm currently learning Deep diving into microservices architecture, advanced algorithms .<br> Ask me about My Smart India Hackathon winning experience, presenting research at ICSET Abu Dhabi, or building predictive maintenance systems using AI and IoT.<br> Fun fact I presented my research paper on AI-powered predictive maintenance in Abu Dhabi at 18—proving that age is just a number when passion meets purpose
+I'm currently working on building modern, scalable web applications with a strong focus on frontend development, while gradually expanding into full-stack systems and AI-driven solutions.<br>
+I'm looking to collaborate on open-source projects related to frontend engineering, full-stack development, and practical AI applications that solve real-world problems.<br>
+I'm currently learning advanced frontend concepts, backend integration, and exploring how AI can be effectively combined with web technologies.<br>
+Ask me about my Smart India Hackathon experience, presenting research at ICSET Abu Dhabi, or developing AI and IoT-based predictive systems.<br>
+Fun fact: I presented my research on AI-powered predictive maintenance in Abu Dhabi at the age of 18—proving that consistency and curiosity matter more than age.
+
 
 <p align="center">
   <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="300"/>
@@ -10,15 +15,18 @@ I'm currently working on Building scalable web applications and solving complex 
 
 ## 🌐 Socials:
 <p align="center">
-  <a href="https://instagram.com/yourusername">
+  <a href="https://instagram.com/harsh_tiwari_96">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
   </a>
-  <a href="mailto:harsh.tiwari1806@gmail.com">
+  <a href="mailto:harshtiwari1806@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
   </a>
-  <a href="https://linkedin.com/in/yourusername">
+  <a href="www.linkedin.com/in/harsh-tiwari-515467315">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
   </a>
+  <a href="https://x.com/https://x.com/Harsh_debugs01">
+  <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=twitter&logoColor=white" />
+</a>
 </p>
 
 
@@ -27,9 +35,13 @@ I'm currently working on Building scalable web applications and solving complex 
 
 
 # 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=Harsh-Tiwari678&theme=dark&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=Harsh-Tiwari678&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Harsh-Tiwari678&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Harsh-Tiwari678&show_icons=true&theme=tokyonight&count_private=true&include_all_commits=true" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harsh-Tiwari678&layout=compact&theme=tokyonight&langs_count=6" />
+</p>
 
 
 ## 🐍 Contribution Snake
