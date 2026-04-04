@@ -1,3 +1,7 @@
+<img src="https://capsule-render.vercel.app/api?type=Venom,&color=auto&height=300&section=header&text=Harsh%20Tiwari&fontSize=90" />
+
+# 👋 About Me:
+I'm currently working on...
 # 💫 About Me:
 I'm currently working on Building scalable web applications and solving complex DSA challenges while exploring  the opportunities .<br> I'm looking to collaborate on Open-source projects involving web development, blockchain integration, or innovative hackathon ideas that create real-world impact.<br> I'm currently learning Deep diving into microservices architecture, advanced algorithms .<br> Ask me about My Smart India Hackathon winning experience, presenting research at ICSET Abu Dhabi, or building predictive maintenance systems using AI and IoT.<br> Fun fact I presented my research paper on AI-powered predictive maintenance in Abu Dhabi at 18—proving that age is just a number when passion meets purpose
 
