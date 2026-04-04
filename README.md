@@ -33,7 +33,6 @@ I'm currently working on Building scalable web applications and solving complex 
 
 
 ## 🐍 Contribution Snake
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/Harsh-Tiwari678/Harsh-Tiwari678/output/github-contribution-grid-snake.svg" />
 </p>
