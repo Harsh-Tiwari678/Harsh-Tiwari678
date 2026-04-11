@@ -9,9 +9,6 @@ Fun fact: I presented my research on AI-powered predictive maintenance in Abu Dh
 
 
 
-
-<picture> <img align="right" src="https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Right_Side.gif?raw=true" width = 250px></picture>
-
 <br><br>
 
 
