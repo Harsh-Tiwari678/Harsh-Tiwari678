@@ -1,14 +1,16 @@
 <img src="https://capsule-render.vercel.app/api?type=wave,&color=auto&height=300&section=header&text=Harsh%20Tiwari&fontSize=90" />
 
 # 💫 About Me:
-I'm currently working on building modern, scalable web applications with a strong focus on frontend development, while gradually expanding into full-stack systems and AI-driven solutions.<br>
-I'm looking to collaborate on open-source projects related to frontend engineering, full-stack development, and practical AI applications that solve real-world problems.<br>
-I'm currently learning advanced frontend concepts, backend integration, and exploring how AI can be effectively combined with web technologies.<br>
-Ask me about my Smart India Hackathon experience, presenting research at ICSET Abu Dhabi, or developing AI and IoT-based predictive systems.<br>
-Fun fact: I presented my research on AI-powered predictive maintenance in Abu Dhabi at the age of 18—proving that consistency and curiosity matter more than age.
+At 18, I presented AI-powered predictive maintenance research at ICSET Abu Dhabi.
+That experience taught me that curiosity and consistency outrun credentials every time.
 
+I build at the intersection of frontend engineering and applied AI — crafting interfaces that don't just look good, but solve actual problems. Currently deepening my backend and full-stack fundamentals while exploring how AI and IoT can make software genuinely useful.
 
+→ Smart India Hackathon finalist
+→ Published researcher at 18 (Abu Dhabi, UAE)
+→ Open to collabs on frontend-heavy, AI-integrated open source work
 
+Ask me anything. I build in public.
 <br><br>
 
 
@@ -35,11 +37,10 @@ Fun fact: I presented my research on AI-powered predictive maintenance in Abu Dh
 
 # 📊 GitHub Stats:
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Harsh-Tiwari678&show_icons=true&theme=tokyonight&count_private=true&include_all_commits=true" />
+  <img src="https://streak-stats.demolab.com?user=Harsh-Tiwari678&theme=tokyonight&hide_border=true" />
 </p>
-
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harsh-Tiwari678&layout=compact&theme=tokyonight&langs_count=6" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harsh-Tiwari678&layout=compact&theme=tokyonight&langs_count=6&hide_border=true" />
 </p>
 
 
