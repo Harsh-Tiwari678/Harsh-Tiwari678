@@ -8,9 +8,9 @@ I build at the intersection of frontend engineering and applied AI — crafting 
 that don't just look good, but solve actual problems. Currently deepening my backend and
 full-stack fundamentals while exploring how AI and IoT can make software genuinely useful.
 
-→ Smart India Hackathon winner
-→ Published researcher at 18 (Abu Dhabi, UAE)
-→ Open to collabs on frontend-heavy, AI-integrated open source work
+→ Smart India Hackathon winner <br>
+→ Published researcher at 18 (Abu Dhabi, UAE) <br>
+→ Open to collabs on frontend-heavy, AI-integrated open source work <br>
 
 Ask me anything. I build in public.
 
