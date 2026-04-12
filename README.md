@@ -44,9 +44,9 @@ Fun fact: I presented my research on AI-powered predictive maintenance in Abu Dh
 
 
 ## 🐍 Contribution Snake
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Harsh-Tiwari678/Harsh-Tiwari678/output/github-contribution-grid-snake.svg" />
-</p>
+<div align="center">
+  <img src="https://profile-readme-generator.com/assets/snake.svg" alt="Snake animation" />
+</div>
 
 
 ### ✍️ Random Dev Quote
