@@ -11,6 +11,8 @@ I build at the intersection of frontend engineering and applied AI — crafting 
 → Open to collabs on frontend-heavy, AI-integrated open source work
 
 Ask me anything. I build in public.
+
+<img align="right" src="https://i.pinimg.com/originals/21/11/61/21116158daaeb1459b4ec0758505e1ad.gif" width="300" />
 <br><br>
 
 
@@ -39,9 +41,7 @@ Ask me anything. I build in public.
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=Harsh-Tiwari678&theme=tokyonight&hide_border=true" />
 </p>
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Harsh-Tiwari678&layout=compact&theme=tokyonight&langs_count=6&hide_border=true" />
-</p>
+
 
 
 ## 🐍 Contribution Snake
