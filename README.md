@@ -1,12 +1,14 @@
 <img src="https://capsule-render.vercel.app/api?type=wave,&color=auto&height=300&section=header&text=Harsh%20Tiwari&fontSize=90" />
 
-# 💫 About Me:
+# 👾 About Me:
 At 18, I presented AI-powered predictive maintenance research at ICSET Abu Dhabi.
 That experience taught me that curiosity and consistency outrun credentials every time.
 
-I build at the intersection of frontend engineering and applied AI — crafting interfaces that don't just look good, but solve actual problems. Currently deepening my backend and full-stack fundamentals while exploring how AI and IoT can make software genuinely useful.
+I build at the intersection of frontend engineering and applied AI — crafting interfaces
+that don't just look good, but solve actual problems. Currently deepening my backend and
+full-stack fundamentals while exploring how AI and IoT can make software genuinely useful.
 
-→ Smart India Hackathon finalist
+→ Smart India Hackathon winner
 → Published researcher at 18 (Abu Dhabi, UAE)
 → Open to collabs on frontend-heavy, AI-integrated open source work
 
