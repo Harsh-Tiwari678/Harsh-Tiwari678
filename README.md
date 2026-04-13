@@ -13,9 +13,12 @@ full-stack fundamentals while exploring how AI and IoT can make software genuine
 → Open to collabs on frontend-heavy, AI-integrated open source work <br>
 
 Ask me anything. I build in public.
-
-<img align="right" src="https://i.pinimg.com/originals/21/11/61/21116158daaeb1459b4ec0758505e1ad.gif" width="300" />
-<br><br>
+<p align="center" style="margin:0;">
+  <img 
+    src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=250&section=header&text=Harsh%20Tiwari&fontSize=70&fontAlign=50&fontAlignY=38"
+    style="display:block;"
+  />
+</p>
 
 
 ## 🌐 Socials:
