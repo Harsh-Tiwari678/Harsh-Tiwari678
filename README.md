@@ -5,7 +5,7 @@
   />
 </p>
 
-<img align="right" src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif style=margin-top: 60px;" width="240" />
+
 
 ## 👾 About Me
 At 18, I presented AI-powered predictive maintenance research at ICSET Abu Dhabi.  
