@@ -1,26 +1,40 @@
-<p align="center" style="margin:0;">
-  <img 
-    src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=220&section=header&text=Harsh%20Tiwari&fontSize=60&fontAlign=50&fontAlignY=38"
-    style="display:block;"
-  />
-</p>
-
-
-
 ## 👾 About Me
+
+<table>
+<tr>
+<td width="60%" valign="top">
+
 At 18, I presented AI-powered predictive maintenance research at ICSET Abu Dhabi.  
 That experience taught me that curiosity and consistency outrun credentials every time.
 
 I build at the intersection of frontend engineering and applied AI — crafting interfaces  
 that don't just look good, but solve actual problems.
 
+<br/>
+
 → Smart India Hackathon winner  
+<br/>
 → Published researcher at 18 (Abu Dhabi, UAE)  
+<br/>
 → Open to collabs on frontend-heavy, AI-integrated open source work  
+
+<br/><br/>
 
 Ask me anything. I build in public.
 
-<br clear="right"/>
+</td>
+
+<td width="40%" align="center" valign="top">
+
+<img 
+  src="https://i.pinimg.com/originals/b0/fe/e3/b0fee33d7a8e955e72da5d06e6713e43.gif" 
+  width="260" 
+  alt="coding animation"
+/>
+
+</td>
+</tr>
+</table>
 
 ## 🌐 Socials
 <p align="center">
@@ -33,7 +47,7 @@ Ask me anything. I build in public.
   <a href="https://www.linkedin.com/in/harsh-tiwari-515467315">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"/>
   </a>
-  <a href="https://x.com/Harsh_debugs01">
+  <a href="https://x.com/Yami_codes">
     <img src="https://img.shields.io/badge/X-000000?style=flat&logo=twitter&logoColor=white"/>
   </a>
 </p>
