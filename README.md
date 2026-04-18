@@ -1,51 +1,21 @@
-<p align="center" style="margin:0;">
+<p align="center">
   <img 
     src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=220&section=header&text=Harsh%20Tiwari&fontSize=60&fontAlign=50&fontAlignY=38"
-    style="display:block;"
   />
 </p>
 
----
-
 ## 👾 About Me
 
-<table>
-<tr>
-<td width="60%" valign="top">
+At 18, I presented **AI-powered predictive maintenance research** at ICSET, Abu Dhabi.  
+That experience reinforced a simple idea: *curiosity + consistency > credentials.*
 
-At 18, I presented AI-powered predictive maintenance research at ICSET Abu Dhabi.  
-That experience taught me that curiosity and consistency outrun credentials every time.
+I work at the intersection of **frontend engineering** and **applied AI**, building interfaces that are not just visually clean, but functionally meaningful.
 
-I build at the intersection of frontend engineering and applied AI — crafting interfaces  
-that don't just look good, but solve actual problems.
+- 🏆 Smart India Hackathon Winner  
+- 📄 Published Researcher (Abu Dhabi, UAE)  
+- 🤝 Open to collaborations (Frontend + AI projects)
 
-<br/>
-
-→ Smart India Hackathon winner  
-<br/>
-→ Published researcher at 18 (Abu Dhabi, UAE)  
-<br/>
-→ Open to collabs on frontend-heavy, AI-integrated open source work  
-
-<br/><br/>
-
-Ask me anything. I build in public.
-
-</td>
-
-<td width="40%" align="center" valign="top">
-
-<img 
-  src="https://i.pinimg.com/originals/b0/fe/e3/b0fee33d7a8e955e72da5d06e6713e43.gif" 
-  width="260" 
-  alt="coding animation"
-/>
-
-</td>
-</tr>
-</table>
-
----
+> I build in public. Feel free to reach out.
 
 ## 🌐 Socials
 
@@ -64,39 +34,32 @@ Ask me anything. I build in public.
   </a>
 </p>
 
----
-
 ## 💻 Tech Stack
 
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=flat&logo=c&logoColor=white)  
-![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=flat&logo=c%2B%2B&logoColor=white)  
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)  
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white)  
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E)  
-![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54)
-
----
+<p align="center">
+  <img src="https://img.shields.io/badge/c-%2300599C.svg?style=flat&logo=c&logoColor=white"/>
+  <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=flat&logo=c%2B%2B&logoColor=white"/>
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E"/>
+  <img src="https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54"/>
+</p>
 
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Harsh-Tiwari678&theme=tokyonight&hide_border=true" />
+  <img src="https://streak-stats.demolab.com?user=Harsh-Tiwari678&theme=tokyonight&hide_border=true"/>
 </p>
-
----
 
 ## 🐍 Contribution Snake
 
-<div align="center">
-  <img src="https://profile-readme-generator.com/assets/snake.svg" />
-</div>
-
----
+<p align="center">
+  <img src="https://profile-readme-generator.com/assets/snake.svg"/>
+</p>
 
 ## ✍️ Random Dev Quote
 
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical"/>
+</p>
 
----
-
-[![](https://visitcount.itsvg.in/api?id=Harsh-Tiwari678&icon=0&color=0)](https://visitcount.itsvg.in)
