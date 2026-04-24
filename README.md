@@ -15,7 +15,7 @@ I work at the intersection of **frontend engineering** and **applied AI**, build
 - 📄 Published Researcher (Abu Dhabi, UAE)  
 - 🤝 Open to collaborations (Frontend + AI projects)
 
-> I build in public. Feel free to reach out.
+- I build in public. Feel free to reach out.
 
 ## 🌐 Socials
 
