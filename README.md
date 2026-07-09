@@ -30,21 +30,21 @@ Building full-stack applications with Django and React, exploring AI workflow au
 
 # About Me
 
-- 🎓 Computer Science student from India
-- 💻 Interested in Backend Engineering, Full-Stack Development, and Cloud
-- 🤖 Building AI-powered workflows with n8n
-- 🐳 Learning Docker and modern deployment practices
-- 🤝 Open to collaborating on open-source and impactful projects
+-  Computer Science student from India
+-  Interested in Backend Engineering, Full-Stack Development, and Cloud
+-  Building AI-powered workflows with n8n
+-  Learning Docker and modern deployment practices
+-  Open to collaborating on open-source and impactful projects
 
 ---
 
 # Currently Building
 
-- 📱 APK Security Scanner using Django & MobSF
-- 🤖 AI workflow automation using n8n
-- ⚛️ Modern React frontends
-- 🔗 Django REST APIs
-- ☁️ Learning Docker and cloud deployment
+-  APK Security Scanner using Django & MobSF
+-  AI workflow automation using n8n
+-  Modern React frontends
+-  Django REST APIs
+-  Learning Docker and cloud deployment
 
 ---
 
@@ -126,10 +126,10 @@ Published in the **International Journal of Advance Computational Engineering an
 
 # Connect
 
-- 📧 **Email:** harshtiwari1806@gmail.com
-- 💼 **LinkedIn:** https://linkedin.com/in/harsh-tiwari-515467315
-- 🐙 **GitHub:** https://github.com/Harsh-Tiwari678
-- 🐦 **X:** https://x.com/Yami_codes
+-  **Email:** harshtiwari1806@gmail.com
+-  **LinkedIn:** https://linkedin.com/in/harsh-tiwari-515467315
+-  **GitHub:** https://github.com/Harsh-Tiwari678
+-  **X:** https://x.com/Yami_codes
 
 ---
 
