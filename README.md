@@ -92,7 +92,7 @@ AI can help build the system.
 ## Connect
 
 [LinkedIn](https://www.linkedin.com/in/harsh-tiwari-515467315) •
-[X](https://x.com/Yami_codes) •
+[X](https://x.com/Harsh_Buildzzz) •
 [Email](mailto:harshtiwari1806@gmail.com)
 
 <div align="center">
