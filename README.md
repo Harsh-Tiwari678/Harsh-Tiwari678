@@ -1,138 +1,102 @@
-<h1 align="center">Hi 👋, I'm Harsh Tiwari</h1>
+<div align="center">
 
-<p align="center">
-<b>Full-Stack Developer • AI Workflows • Django • React</b>
-</p>
+# Hi 👋, I'm Harsh Tiwari
 
-<p align="center">
-Building full-stack applications with Django and React, exploring AI workflow automation with n8n, and continuously learning backend engineering, Docker, and cloud technologies.
-</p>
+I write something for machines and they understand!
 
-<p align="center">
-<a href="mailto:harshtiwari1806@gmail.com">
-<img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white"/>
-</a>
+</div>
 
-<a href="https://www.linkedin.com/in/harsh-tiwari-515467315">
-<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"/>
-</a>
+## Experience
 
-<a href="https://github.com/Harsh-Tiwari678">
-<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white"/>
-</a>
+### **Daikin** *(SDE Intern | June 2026 – Aug 2026)*
 
-<a href="https://x.com/Yami_codes">
-<img src="https://img.shields.io/badge/X-000000?style=flat&logo=x&logoColor=white"/>
-</a>
-</p>
+I built security automation tools and an automated mobile app scanner to reduce repetitive manual security tasks.
+
+* **Automated Threat Scanner (SOAR)**
+  Built a security automation workflow with n8n that reads security alerts, matches them against 150+ company servers, and automatically checks for exposed network ports, reducing triage time from 3 hours to under 30 seconds.
+
+* **Local AI & Chat Memory**
+  Set up an on-premise AI system using Ollama and Llama 3 with Redis-based memory, allowing the team to query internal server data without sending sensitive company information to external cloud AI services.
+
+* **Android App Security Auditor**
+  Built a Python-based tool to decompile enterprise Android applications and automatically identify security issues, excessive permissions, and exposed API keys before release.
 
 ---
 
-# About Me
+## Achievements
 
--  Computer Science student from India
--  Interested in Backend Engineering, Full-Stack Development, and Cloud
--  Building AI-powered workflows with n8n
--  Learning Docker and modern deployment practices
--  Open to collaborating on open-source and impactful projects
+###  **Smart India Hackathon 2024 Winner**
 
----
+Won **Smart India Hackathon 2024** as part of a multidisciplinary engineering team, building a solution for a real-world problem under a national-level competition.
 
-# Currently Building
+###  **Published Research Paper**
 
--  APK Security Scanner using Django & MobSF
--  AI workflow automation using n8n
--  Modern React frontends
--  Django REST APIs
--  Learning Docker and cloud deployment
+Co-authored **"AI-Powered Predictive Maintenance Using IoT and Blockchain"**, published in the *International Journal of Advance Computational Engineering and Networking (IJACEN)*, Volume 13, Issue 8, August 2025.
+
+[Read the Paper](https://iraj.in/journalNEW/IJACEN/paperdetails/22144)
 
 ---
 
-# Engineering Interests
+## Tech Stack
 
-- Backend Engineering
-- Full-Stack Development
-- AI Workflow Automation
-- Cloud Computing
-- Application Security
+<div align="left">
 
----
+**Languages & Core** <br> <img src="https://skillicons.dev/icons?i=python,js,ts,bash,c,cpp" height="32" />
 
-# Achievements
+**Frontend** <br> <img src="https://skillicons.dev/icons?i=react,tailwind" height="32" />
 
-🏆 **Smart India Hackathon 2024 Winner**
+**Backend & Data** <br> <img src="https://skillicons.dev/icons?i=django,fastapi,nodejs,redis,postgres,sqlite" height="32" />
 
-Recognized as a winner at **Smart India Hackathon 2024**, India's largest national innovation competition, for developing a real-world solution as part of a multidisciplinary engineering team.
+**AI & Automation** <br>
+`Ollama (Llama 3)` · `n8n` · `LangChain` · `OpenAI API`
 
-📄 **Published Research Paper (Co-Author)**
+**Infrastructure & Tools** <br> <img src="https://skillicons.dev/icons?i=docker,linux,git,github,postman" height="32" />
 
-**AI-Powered Predictive Maintenance Using IoT and Blockchain**
+**Security & Mobile Analysis** <br>
+`Nmap` · `Androguard` · `JADX` · `OWASP MASVS`
 
-Published in the **International Journal of Advance Computational Engineering and Networking (IJACEN)**, **Volume 13, Issue 8 (August 2025)**.
-
-🔗 **Publication:** [Read the Paper](https://iraj.in/journal/IJACEN//paper_detail.php?paper_id=22144)
+</div>
 
 ---
 
-# Tech Stack
+## Engineering Lessons
 
-### Languages
+I used to think writing code was what mattered most. Working on real systems changed that.
 
-<p>
-<img src="https://skillicons.dev/icons?i=cpp,python,javascript,html,css,mysql" />
-</p>
+With AI making it easier to generate code, I think the more valuable engineering skills are increasingly about **system thinking**:
 
-### Frontend
+* Performance
+* Optimization
+* Scalability
+* Security
+* Understanding trade-offs
 
-<p>
-<img src="https://skillicons.dev/icons?i=react,tailwind,bootstrap" />
-</p>
+And there is another skill that engineers often underestimate: **the ability to sell an idea**.
 
-### Backend
-
-<p>
-<img src="https://skillicons.dev/icons?i=django,nodejs" />
-</p>
-
-### Databases
-
-<p>
-<img src="https://skillicons.dev/icons?i=mysql,sqlite" />
-</p>
-
-### AI & Automation
-
-<p>
-<img src="https://skillicons.dev/icons?i=git,github" />
-<img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white"/>
-<img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white"/>
-<img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white"/>
-</p>
-
-### Tools
-
-<p>
-<img src="https://skillicons.dev/icons?i=git,github,docker,vscode,postman,linux" />
-</p>
-
-### Currently Learning
-
-<p>
-<img src="https://skillicons.dev/icons?i=docker,aws" />
-</p>
+A good system solves a problem. A great engineer also knows how to explain why that problem matters and why their solution is worth building.
 
 ---
 
-# Connect
+## Where I Think Tech Is Headed
 
--  **Email:** harshtiwari1806@gmail.com
--  **LinkedIn:** https://linkedin.com/in/harsh-tiwari-515467315
--  **GitHub:** https://github.com/Harsh-Tiwari678
--  **X:** https://x.com/Yami_codes
+I think AI is becoming far more capable, but I don't think the human part of engineering disappears.
+
+The difficult part isn't only generating code. It's understanding **what people actually need**, translating messy human problems into systems, and making the right technical decisions around performance, security, reliability, and usability.
+
+AI can help build the system.
+
+**Humans still need to decide what should be built.**
 
 ---
 
-# Philosophy
+## Connect
 
-> Build software that solves real problems, automate repetitive work where possible, and never stop learning.
+[LinkedIn](https://www.linkedin.com/in/harsh-tiwari-515467315) •
+[X](https://x.com/Yami_codes) •
+[Email](mailto:harshtiwari1806@gmail.com)
+
+<div align="center">
+
+**Build systems. Solve problems. Keep learning.**
+
+</div>
