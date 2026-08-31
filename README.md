@@ -10,7 +10,7 @@ I write something for machines and they understand!
 
 ### **Daikin** *(SDE Intern | June 2026 – Aug 2026)*
 
-I built security automation tools and an automated mobile app scanner to reduce repetitive manual security tasks.
+I built security automation tools and an automated APK scanner to reduce repetitive manual security tasks.
 
 * **Automated Threat Scanner (SOAR)**
   Built a security automation workflow with n8n that reads security alerts, matches them against 150+ company servers, and automatically checks for exposed network ports, reducing triage time from 3 hours to under 30 seconds.
