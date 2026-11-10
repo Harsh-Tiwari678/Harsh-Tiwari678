@@ -1,26 +1,51 @@
-name: Snake Animation
+name: Refresh profile visuals
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - scripts/render_profile_cards.py
+      - .github/workflows/main.yml
   schedule:
-    - cron: "0 */12 * * *"
+    # Runs daily at 00:17 UTC (05:47 India time).
+    - cron: "17 0 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
-jobs:
-  snake:
-    runs-on: ubuntu-latest
+concurrency:
+  group: profile-visuals
+  cancel-in-progress: false
 
+jobs:
+  render:
+    runs-on: ubuntu-latest
     steps:
-      - name: Generate snake (dark smooth)
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Render profile SVG cards from GitHub contribution data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: Harsh-Tiwari678
+        run: python scripts/render_profile_cards.py --output dist/cards
+
+      - name: Generate contribution snake
         uses: Platane/snk@v3
         with:
           github_user_name: Harsh-Tiwari678
           outputs: |
-            dist/github-contribution-grid-snake.svg?palette=github-dark&color_snake=#00ff99&color_dots=#161b22,#0e4429,#006d32,#26a641,#39d353
+            dist/github-contribution-grid-snake.svg?palette=github-light&color_snake=#2864dc&color_dots=#f7f6f2,#d7e3fb,#a9c4f3,#6f99e8,#2864dc
 
-      - name: Push to branch
+      - name: Publish generated SVGs to output branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
