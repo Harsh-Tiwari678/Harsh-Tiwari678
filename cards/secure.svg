@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="178" viewBox="0 0 350 178" role="img" aria-label="SECURE"><title>SECURE</title>
+<style>
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .ink { fill: #20242b; } .muted { fill: #69717d; } .blue { fill: #2864dc; }
+      .card { fill: #f7f6f2; stroke: #e3e1da; stroke-width: 1; }
+      @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes shine { 0%, 65% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+      @keyframes pulse { 0%, 100% { opacity: .35; } 50% { opacity: .9; } }
+      .enter { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+      .shine { animation: shine 5s ease-in-out infinite; }
+      .pulse { animation: pulse 2.8s ease-in-out infinite; }
+      @media (prefers-reduced-motion: reduce) { *, .enter, .shine, .pulse { animation: none !important; } }
+    </style>
+<rect x="1" y="1" width="348" height="176" rx="15" class="card"/>
+<rect x="22" y="23" width="38" height="3" rx="2" fill="#b64e4e"/>
+<text x="22" y="57" font-size="12" letter-spacing="2" class="muted">03 / PROFILE</text>
+<text x="22" y="104" font-size="31" class="serif ink enter">SECURE</text>
+<text x="22" y="135" font-size="13" class="muted">Application security</text>
+<text x="22" y="156" font-size="13" class="muted">Privacy and resilience</text>
+<circle cx="318" cy="30" r="5" fill="#b64e4e" class="pulse"/>
+</svg>
