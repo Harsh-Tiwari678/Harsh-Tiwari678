@@ -1,313 +1,131 @@
 #!/usr/bin/env python3
-"""Render GitHub profile SVG cards using the authenticated user's contribution calendar.
-
-No third-party Python packages are required. The GitHub Actions workflow supplies
-GITHUB_TOKEN and publishes the generated SVGs to the repository's `output` branch.
-"""
+"""Render the static, dark SVG cards used by the GitHub profile README."""
 from __future__ import annotations
 
 import argparse
-import calendar
 import html
-import json
-import os
-import sys
-import urllib.error
-import urllib.request
-from collections import defaultdict
-from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-BLUE = "#2864dc"
-INK = "#20242b"
-MUTED = "#69717d"
-PAPER = "#f7f6f2"
-LINE = "#e3e1da"
-
-PROJECTS = [
-    {
-        "file": "secure-evidence.svg",
-        "number": "01",
-        "name": "Secure Evidence",
-        "description": "Evidence management with integrity, access control and auditability.",
-        "stack": "Next.js  ·  Supabase  ·  MinIO  ·  SHA-256",
-    },
-    {
-        "file": "apk-scanner.svg",
-        "number": "02",
-        "name": "APK Scanner",
-        "description": "Android application analysis with automated security scanning.",
-        "stack": "Python  ·  Django  ·  MobSF",
-    },
-]
-
-QUERY = """query($login: String!, $from: DateTime!, $to: DateTime!) {
-  user(login: $login) {
-    contributionsCollection(from: $from, to: $to) {
-      contributionCalendar {
-        totalContributions
-        weeks {
-          contributionDays {
-            contributionCount
-            date
-            weekday
-          }
-        }
-      }
-    }
-  }
-}"""
+BG = "#0d1117"
+SURFACE = "#161b22"
+SURFACE_ALT = "#1c2128"
+TEXT = "#e6edf3"
+MUTED = "#8b949e"
+BORDER = "#30363d"
+BLUE = "#58a6ff"
+AMBER = "#e3b341"
+RED = "#f47067"
 
 
-def fetch_contributions(username: str, token: str) -> dict:
-    today = datetime.now(timezone.utc).date()
-    start = today - timedelta(days=364)
-    payload = {
-        "query": QUERY,
-        "variables": {
-            "login": username,
-            "from": f"{start.isoformat()}T00:00:00Z",
-            "to": f"{today.isoformat()}T23:59:59Z",
-        },
-    }
-    request = urllib.request.Request(
-        "https://api.github.com/graphql",
-        data=json.dumps(payload).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {token}",
-            "Content-Type": "application/json",
-            "User-Agent": "github-profile-svg-renderer",
-        },
-        method="POST",
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            result = json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as exc:
-        details = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"GitHub GraphQL returned HTTP {exc.code}: {details}") from exc
-    except urllib.error.URLError as exc:
-        raise RuntimeError(f"Could not reach GitHub GraphQL: {exc}") from exc
-
-    if result.get("errors"):
-        raise RuntimeError("GitHub GraphQL error: " + json.dumps(result["errors"]))
-    try:
-        return result["data"]["user"]["contributionsCollection"]["contributionCalendar"]
-    except (KeyError, TypeError) as exc:
-        raise RuntimeError("GitHub did not return a contribution calendar for this profile.") from exc
+def esc(value: str) -> str:
+    return html.escape(value, quote=True)
 
 
-def all_days(calendar_data: dict) -> list[dict]:
-    days = []
-    for week in calendar_data.get("weeks", []):
-        days.extend(week.get("contributionDays", []))
-    return sorted(days, key=lambda item: item["date"])
-
-
-def stats_for(days: list[dict]) -> dict:
-    parsed = [
-        {**item, "parsed_date": date.fromisoformat(item["date"]), "count": int(item["contributionCount"])}
-        for item in days
+def svg_start(width: int, height: int, title: str) -> list[str]:
+    return [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
+        f'<title id="title">{esc(title)}</title>',
+        '<desc id="desc">Dark GitHub profile card with subtle accent styling.</desc>',
+        '<style>',
+        "text{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}",
+        "@keyframes rise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}",
+        "@keyframes pulse{0%,100%{opacity:.58}50%{opacity:1}}",
+        ".enter{animation:rise .55s ease-out both}.accent{animation:pulse 4.8s ease-in-out infinite}",
+        "@media(prefers-reduced-motion:reduce){*,.enter,.accent{animation:none!important}}",
+        '</style>',
+        f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="16" fill="{BG}" stroke="{BORDER}"/>',
     ]
-    active = [item for item in parsed if item["count"] > 0]
-    by_weekday = defaultdict(int)
-    by_month = defaultdict(int)
-    for item in parsed:
-        by_weekday[item["parsed_date"].strftime("%A")] += item["count"]
-        by_month[item["parsed_date"].strftime("%Y-%m")] += item["count"]
-
-    longest = current = run = 0
-    previous = None
-    for item in parsed:
-        if item["count"] > 0:
-            if previous and item["parsed_date"] == previous + timedelta(days=1):
-                run += 1
-            else:
-                run = 1
-            longest = max(longest, run)
-            previous = item["parsed_date"]
-        else:
-            run = 0
-            previous = item["parsed_date"]
-
-    today = datetime.now(timezone.utc).date()
-    active_dates = {item["parsed_date"] for item in active}
-    cursor = today if today in active_dates else today - timedelta(days=1)
-    while cursor in active_dates:
-        current += 1
-        cursor -= timedelta(days=1)
-
-    busiest = max(by_weekday, key=by_weekday.get) if by_weekday else "—"
-    months = sorted(by_month.items())[-12:]
-    return {
-        "total": sum(item["count"] for item in parsed),
-        "active_days": len(active),
-        "current_streak": current,
-        "longest_streak": longest,
-        "busiest_day": busiest,
-        "months": months,
-        "days": parsed,
-    }
 
 
-def svg_start(width: int, height: int, title: str) -> str:
-    return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
-        f'viewBox="0 0 {width} {height}" role="img" aria-label="{html.escape(title)}">'
-        f'<title>{html.escape(title)}</title>'
-    )
+def write_svg(out: Path, filename: str, lines: list[str]) -> None:
+    lines.append('</svg>')
+    (out / filename).write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
 
-def shared_style() -> str:
-    return f"""<style>
-      text {{ font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; }}
-      .serif {{ font-family: Georgia, 'Times New Roman', serif; }}
-      .ink {{ fill: {INK}; }} .muted {{ fill: {MUTED}; }} .blue {{ fill: {BLUE}; }}
-      .card {{ fill: {PAPER}; stroke: {LINE}; stroke-width: 1; }}
-      @keyframes rise {{ from {{ opacity: 0; transform: translateY(12px); }} to {{ opacity: 1; transform: translateY(0); }} }}
-      @keyframes shine {{ 0%, 65% {{ transform: translateX(-120%); }} 85%, 100% {{ transform: translateX(120%); }} }}
-      @keyframes pulse {{ 0%, 100% {{ opacity: .35; }} 50% {{ opacity: .9; }} }}
-      .enter {{ animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }}
-      .shine {{ animation: shine 5s ease-in-out infinite; }}
-      .pulse {{ animation: pulse 2.8s ease-in-out infinite; }}
-      @media (prefers-reduced-motion: reduce) {{ *, .enter, .shine, .pulse {{ animation: none !important; }} }}
-    </style>"""
-
-
-def write_hero(out: Path, username: str) -> None:
-    svg = [svg_start(1100, 270, "Harsh Tiwari profile introduction"), shared_style()]
-    svg.append(f'<rect x="1" y="1" width="1098" height="268" rx="18" class="card"/>')
-    svg.append('<text x="54" y="58" font-size="13" letter-spacing="3" class="muted">ENGINEERING / BUILDING / LEARNING</text>')
-    svg.append('<text x="50" y="142" font-size="68" class="serif ink enter">Harsh Tiwari</text>')
-    svg.append('<text x="54" y="184" font-size="20" class="ink enter" style="animation-delay:.12s">I build systems that solve real problems.</text>')
-    svg.append('<text x="54" y="224" font-size="14" class="muted">Backend  ·  DevOps  ·  Applied AI  ·  Security</text>')
-    svg.append('<rect x="850" y="48" width="190" height="170" rx="14" fill="#eef1f7" stroke="#d9deea"/>')
-    svg.append('<text x="945" y="143" text-anchor="middle" font-size="64" class="serif blue">HT</text>')
-    svg.append('<circle cx="1022" cy="62" r="5" fill="#2864dc" class="pulse"/>')
-    svg.append(f'<text x="850" y="244" font-size="12" class="muted">@{html.escape(username)}</text>')
-    svg.append('</svg>')
-    (out / "hero.svg").write_text("\n".join(svg), encoding="utf-8")
-
-
-def write_tile(out: Path, filename: str, number: str, heading: str, line1: str, line2: str, accent: str) -> None:
-    svg = [svg_start(350, 178, heading), shared_style()]
-    svg.append(f'<rect x="1" y="1" width="348" height="176" rx="15" class="card"/>')
-    svg.append(f'<rect x="22" y="23" width="38" height="3" rx="2" fill="{accent}"/>')
-    svg.append(f'<text x="22" y="57" font-size="12" letter-spacing="2" class="muted">{number} / PROFILE</text>')
-    svg.append(f'<text x="22" y="104" font-size="31" class="serif ink enter">{html.escape(heading)}</text>')
-    svg.append(f'<text x="22" y="135" font-size="13" class="muted">{html.escape(line1)}</text>')
-    svg.append(f'<text x="22" y="156" font-size="13" class="muted">{html.escape(line2)}</text>')
-    svg.append(f'<circle cx="318" cy="30" r="5" fill="{accent}" class="pulse"/>')
-    svg.append('</svg>')
-    (out / filename).write_text("\n".join(svg), encoding="utf-8")
-
-
-def write_activity(out: Path, stats: dict) -> None:
-    svg = [svg_start(1100, 390, "Monthly GitHub contributions and activity statistics"), shared_style()]
-    svg.append('<rect x="1" y="1" width="1098" height="388" rx="18" class="card"/>')
-    svg.append('<text x="38" y="49" font-size="13" letter-spacing="2" class="muted">GITHUB / LAST 12 MONTHS</text>')
-    metrics = [
-        (38, "CONTRIBUTIONS", f"{stats['total']:,}"),
-        (300, "ACTIVE DAYS", f"{stats['active_days']:,}"),
-        (545, "CURRENT STREAK", f"{stats['current_streak']} days"),
-        (810, "LONGEST STREAK", f"{stats['longest_streak']} days"),
+def write_hero(out: Path) -> None:
+    s = svg_start(1100, 230, "Harsh Tiwari — profile")
+    s += [
+        f'<rect x="1" y="1" width="1098" height="228" rx="16" fill="{SURFACE}"/>',
+        f'<rect x="32" y="34" width="3" height="160" rx="2" fill="{BLUE}"/>',
+        f'<text x="58" y="82" fill="{TEXT}" font-size="42" font-weight="650" class="enter">Harsh Tiwari</text>',
+        f'<text x="60" y="119" fill="{MUTED}" font-size="17" class="enter" style="animation-delay:.08s">I build practical software across infrastructure and security.</text>',
+        f'<text x="60" y="165" fill="{TEXT}" font-size="12" font-weight="650" letter-spacing="2">AREAS OF INTEREST</text>',
+        f'<text x="60" y="190" fill="{MUTED}" font-size="15">Backend systems  ·  DevOps  ·  Applied AI  ·  Application security</text>',
+        f'<circle cx="1032" cy="50" r="4" fill="{BLUE}" class="accent"/>',
     ]
-    for x, label, value in metrics:
-        svg.append(f'<text x="{x}" y="88" font-size="11" letter-spacing="1.1" class="muted">{label}</text>')
-        svg.append(f'<text x="{x}" y="126" font-size="27" class="serif ink">{html.escape(value)}</text>')
-    svg.append(f'<text x="38" y="159" font-size="12" class="muted">Busiest weekday: <tspan fill="{BLUE}" font-weight="600">{html.escape(stats["busiest_day"])}</tspan></text>')
-    svg.append(f'<line x1="38" y1="184" x2="1062" y2="184" stroke="{LINE}"/>')
-    months = stats["months"]
-    max_value = max((value for _, value in months), default=1) or 1
-    chart_left, chart_top, chart_height, bar_w, gap = 50, 220, 112, 51, 31
-    for index, (month, value) in enumerate(months):
-        x = chart_left + index * (bar_w + gap)
-        height = max(3, (value / max_value) * chart_height)
-        y = chart_top + chart_height - height
-        fill = BLUE if value == max_value and value > 0 else "#b8c9ef"
-        svg.append(f'<rect x="{x}" y="{chart_top}" width="{bar_w}" height="{chart_height}" rx="5" fill="#eceef2"/>')
-        svg.append(f'<rect x="{x}" y="{y:.1f}" width="{bar_w}" height="{height:.1f}" rx="5" fill="{fill}" class="enter" style="animation-delay:{index * .035:.2f}s"/>')
-        label = datetime.strptime(month, "%Y-%m").strftime("%b")
-        svg.append(f'<text x="{x + bar_w/2}" y="356" text-anchor="middle" font-size="12" class="muted">{label}</text>')
-    svg.append('</svg>')
-    (out / "activity.svg").write_text("\n".join(svg), encoding="utf-8")
+    write_svg(out, "hero.svg", s)
 
 
-def write_heatmap(out: Path, stats: dict) -> None:
-    days = stats["days"]
-    # GraphQL returns calendar weeks, but use date positions so the grid is stable.
-    if not days:
-        days = []
-    first = date.fromisoformat(days[0]["date"]) if days else date.today()
-    offset = (first.weekday() + 1) % 7  # Sunday-first, matching GitHub's calendar.
-    columns = (len(days) + offset + 6) // 7
-    cell, gap = 12, 5
-    width = max(900, 72 + columns * (cell + gap) + 32)
-    height = 180
-    svg = [svg_start(width, height, "GitHub contribution heatmap"), shared_style()]
-    svg.append(f'<rect x="1" y="1" width="{width-2}" height="{height-2}" rx="18" class="card"/>')
-    svg.append('<text x="28" y="34" font-size="13" letter-spacing="2" class="muted">CONTRIBUTION CALENDAR</text>')
-    palette = ["#e9e8e2", "#d7e3fb", "#a9c4f3", "#6f99e8", BLUE]
-    for index, item in enumerate(days):
-        d = date.fromisoformat(item["date"])
-        x_index = (offset + index) // 7
-        y_index = (offset + index) % 7
-        count = item["count"]
-        level = 0 if count == 0 else 1 if count <= 2 else 2 if count <= 5 else 3 if count <= 9 else 4
-        x = 28 + x_index * (cell + gap)
-        y = 52 + y_index * (cell + gap)
-        title = f"{d.isoformat()}: {count} contributions"
-        svg.append(f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" fill="{palette[level]}"><title>{html.escape(title)}</title></rect>')
-    svg.append(f'<text x="28" y="164" font-size="11" class="muted">Less</text>')
-    for i, color in enumerate(palette):
-        svg.append(f'<rect x="67" y="153" width="12" height="12" rx="3" fill="{color}"/>')
-        if i < 4:
-            continue
-    svg.append(f'<text x="158" y="164" font-size="11" class="muted">More</text>')
-    svg.append('</svg>')
-    (out / "heatmap.svg").write_text("\n".join(svg), encoding="utf-8")
+def write_focus(out: Path, filename: str, label: str, detail: str, accent: str, delay: str) -> None:
+    s = svg_start(350, 112, label)
+    s += [
+        f'<rect x="1" y="1" width="348" height="110" rx="15" fill="{SURFACE}"/>',
+        f'<rect x="20" y="22" width="3" height="68" rx="2" fill="{accent}"/>',
+        f'<text x="38" y="49" fill="{accent}" font-size="12" font-weight="700" letter-spacing="2" class="enter" style="animation-delay:{delay}">{label}</text>',
+        f'<text x="38" y="73" fill="{TEXT}" font-size="13" class="enter" style="animation-delay:{delay}">{esc(detail)}</text>',
+        f'<circle cx="322" cy="28" r="3" fill="{accent}" class="accent"/>',
+    ]
+    write_svg(out, filename, s)
 
 
-def write_project(out: Path, project: dict) -> None:
-    svg = [svg_start(520, 190, project["name"]), shared_style()]
-    svg.append('<rect x="1" y="1" width="518" height="188" rx="16" class="card"/>')
-    svg.append(f'<text x="28" y="36" font-size="12" letter-spacing="2" class="blue">PROJECT / {project["number"]}</text>')
-    svg.append(f'<text x="28" y="83" font-size="31" class="serif ink">{html.escape(project["name"])}</text>')
-    svg.append(f'<text x="28" y="116" font-size="13" class="muted">{html.escape(project["description"])}</text>')
-    svg.append(f'<text x="28" y="158" font-size="12" class="muted">{html.escape(project["stack"])}</text>')
-    svg.append('</svg>')
-    (out / project["file"]).write_text("\n".join(svg), encoding="utf-8")
+def write_project(out: Path, filename: str, title: str, description: str, index: str, accent: str, delay: str) -> None:
+    s = svg_start(520, 156, title)
+    s += [
+        f'<rect x="1" y="1" width="518" height="154" rx="15" fill="{SURFACE}"/>',
+        f'<text x="24" y="32" fill="{accent}" font-size="11" font-weight="650" letter-spacing="1.7" class="enter" style="animation-delay:{delay}">FEATURED PROJECT  /  {index}</text>',
+        f'<text x="24" y="74" fill="{TEXT}" font-size="25" font-weight="620" class="enter" style="animation-delay:{delay}">{esc(title)}</text>',
+        f'<text x="24" y="105" fill="{MUTED}" font-size="13" class="enter" style="animation-delay:{delay}">{esc(description)}</text>',
+        f'<text x="24" y="132" fill="{accent}" font-size="12">VIEW PROJECT  ↗</text>',
+    ]
+    write_svg(out, filename, s)
+
+
+def write_experience(out: Path) -> None:
+    s = svg_start(1100, 126, "Daikin internship experience")
+    s += [
+        f'<rect x="1" y="1" width="1098" height="124" rx="15" fill="{SURFACE}"/>',
+        f'<text x="26" y="36" fill="{BLUE}" font-size="11" font-weight="650" letter-spacing="1.7">EXPERIENCE</text>',
+        f'<text x="26" y="70" fill="{TEXT}" font-size="21" font-weight="620">Daikin</text>',
+        f'<text x="26" y="97" fill="{MUTED}" font-size="14">SDE Intern  ·  June 2026 – August 2026</text>',
+        f'<line x1="460" y1="25" x2="460" y2="101" stroke="{BORDER}"/>',
+        f'<text x="488" y="51" fill="{TEXT}" font-size="14">Security automation, local AI systems, and Android app auditing.</text>',
+        f'<text x="488" y="77" fill="{MUTED}" font-size="13">SOAR alert triage  ·  Ollama / Llama 3 with Redis  ·  Python security tooling</text>',
+    ]
+    write_svg(out, "experience.svg", s)
+
+
+def write_highlights(out: Path) -> None:
+    s = svg_start(1100, 126, "Selected achievements")
+    s += [
+        f'<rect x="1" y="1" width="1098" height="124" rx="15" fill="{SURFACE}"/>',
+        f'<text x="26" y="36" fill="{AMBER}" font-size="11" font-weight="650" letter-spacing="1.7">HIGHLIGHTS</text>',
+        f'<text x="26" y="75" fill="{TEXT}" font-size="17" font-weight="600">Smart India Hackathon 2024</text>',
+        f'<text x="26" y="99" fill="{MUTED}" font-size="13">Winner</text>',
+        f'<line x1="540" y1="25" x2="540" y2="101" stroke="{BORDER}"/>',
+        f'<text x="570" y="75" fill="{TEXT}" font-size="17" font-weight="600">Research published in IJACEN</text>',
+        f'<text x="570" y="99" fill="{MUTED}" font-size="13">August 2025</text>',
+    ]
+    write_svg(out, "highlights.svg", s)
+
+
+def render(out: Path) -> None:
+    out.mkdir(parents=True, exist_ok=True)
+    write_hero(out)
+    write_focus(out, "build.svg", "BUILD", "Backend systems and product engineering", BLUE, "0s")
+    write_focus(out, "operate.svg", "OPERATE", "Linux, infrastructure, and automation", AMBER, ".08s")
+    write_focus(out, "secure.svg", "SECURE", "Application security and resilience", RED, ".16s")
+    write_project(out, "secure-evidence.svg", "Secure Evidence", "Evidence management with integrity, access control and auditability.", "01", BLUE, "0s")
+    write_project(out, "apk-scanner.svg", "APK Scanner", "Android application analysis with automated security scanning.", "02", RED, ".1s")
+    write_experience(out)
+    write_highlights(out)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", default="dist/cards", help="Directory in which SVG cards are written")
     args = parser.parse_args()
-
-    token = os.environ.get("GITHUB_TOKEN")
-    username = os.environ.get("GITHUB_USERNAME", "Harsh-Tiwari678")
-    if not token:
-        print("GITHUB_TOKEN is required. In GitHub Actions, pass secrets.GITHUB_TOKEN.", file=sys.stderr)
-        return 2
-
-    output = Path(args.output)
-    output.mkdir(parents=True, exist_ok=True)
-    try:
-        calendar_data = fetch_contributions(username, token)
-        stats = stats_for(all_days(calendar_data))
-        write_hero(output, username)
-        write_tile(output, "build.svg", "01", "BUILD", "Backend systems and APIs", "Product engineering", BLUE)
-        write_tile(output, "operate.svg", "02", "OPERATE", "Linux and infrastructure", "Automation and DevOps", "#8b6a39")
-        write_tile(output, "secure.svg", "03", "SECURE", "Application security", "Privacy and resilience", "#b64e4e")
-        write_activity(output, stats)
-        write_heatmap(output, stats)
-        for project in PROJECTS:
-            write_project(output, project)
-    except Exception as exc:  # Fail the workflow loudly rather than publish stale/empty graphics.
-        print(f"Could not render profile cards: {exc}", file=sys.stderr)
-        return 1
-
-    print(f"Rendered profile cards to {output.resolve()}")
+    render(Path(args.output))
+    print(f"Rendered 8 profile cards to {Path(args.output).resolve()}")
     return 0
 
 

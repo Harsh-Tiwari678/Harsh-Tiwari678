@@ -21,18 +21,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Render profile SVG cards from GitHub contribution data
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USERNAME: Harsh-Tiwari678
+      - name: Render profile SVG cards
         run: python scripts/render_profile_cards.py --output dist/cards
-
-      - name: Generate contribution snake
-        uses: Platane/snk@v3
-        with:
-          github_user_name: Harsh-Tiwari678
-          outputs: |
-            dist/github-contribution-grid-snake.svg?palette=github-dark&color_snake=#2563eb&color_dots=#161b22,#0e4429,#006d32,#26a641,#39d353
 
       - name: Publish generated SVGs to output branch
         uses: peaceiris/actions-gh-pages@v3
