@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="126" viewBox="0 0 1100 126" role="img" aria-labelledby="title desc">
+<title id="title">Daikin internship experience</title>
+<desc id="desc">Dark GitHub profile card with subtle accent styling.</desc>
+<style>
+text{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+@keyframes rise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.58}50%{opacity:1}}
+.enter{animation:rise .55s ease-out both}.accent{animation:pulse 4.8s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){*,.enter,.accent{animation:none!important}}
+</style>
+<rect x=".5" y=".5" width="1099" height="125" rx="16" fill="#0d1117" stroke="#30363d"/>
+<rect x="1" y="1" width="1098" height="124" rx="15" fill="#161b22"/>
+<text x="26" y="36" fill="#58a6ff" font-size="11" font-weight="650" letter-spacing="1.7">EXPERIENCE</text>
+<text x="26" y="70" fill="#e6edf3" font-size="21" font-weight="620">Daikin</text>
+<text x="26" y="97" fill="#8b949e" font-size="14">SDE Intern  ·  June 2026 – August 2026</text>
+<line x1="460" y1="25" x2="460" y2="101" stroke="#30363d"/>
+<text x="488" y="51" fill="#e6edf3" font-size="14">Security automation, local AI systems, and Android app auditing.</text>
+<text x="488" y="77" fill="#8b949e" font-size="13">SOAR alert triage  ·  Ollama / Llama 3 with Redis  ·  Python security tooling</text>
+</svg>
